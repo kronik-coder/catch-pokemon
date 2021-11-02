@@ -1,0 +1,27 @@
+{% extends 'base.html.j2' %}
+{% block title%}
+Login
+{% endblock %}
+
+{% block content %}
+<h1>Login</h1>
+<form action="{{url_for('auth.login')}}" method="POST">
+  {{ form.hidden_tag() }}
+
+  <div>
+  {{ form.email.label(class="form-label") }}
+  {{ form.email(class="form-control") }}
+  </div>
+
+  <div>
+  {{ form.password.label(class="form-label") }}
+  {{ form.password(class="form-control") }}
+  </div>
+
+  <br/>
+  
+  <div>
+  {{ form.submit(class="btn btn-primary form-control") }}
+  </div>
+</form>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html.j2' %}
+{% block css %}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+{% endblock %}
+{% block title %}
+PokeWorld
+{% endblock %}
+
+{% block content %}
+<form method='POST' action='{{url_for("social.index")}}'>
+    <div class='mb-3'>
+        <textarea class="form-control" placeholder="Post something" name="body" style="height:100px;"></textarea>
+        <button type="submit" class="btn btn-primary">Post</button>
+    </div>
+</form>
+
+<h1>News Feed</h1>
+{% for post in posts %}
+    {% include './includes/_post.html.j2' %}
+{% endfor %}
+{% endblock %}
